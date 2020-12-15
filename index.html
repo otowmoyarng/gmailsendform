@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="./style/style.css">
+  <title>Gメール作成フォーム</title>
+  </head>
+<body>
+<!-- Start your code here -->
+  <form class="mailform" action="./index.html" method="post">
+    <fieldset>
+      <legend>Gメール作成フォーム</legend>
+      <table>
+        <tbody>
+          <tr>
+            <td class="itemlabel">
+              <label for="mailform"><span class="require">*</span>宛先：</label>
+            </td>
+            <td>
+              <input type="text" id="address_to" value=""/>
+            </td>
+          </tr>
+          <tr>
+            <td class="itemlabel">
+              <label for="mailform"> ＣＣ：</label>
+            </td>
+            <td>
+              <input type="text" id="address_cc" value=""/>
+            </td>
+          </tr>
+          <tr>
+            <td class="itemlabel">
+              <label for="mailform"> ＢＣＣ：</label>
+            </td>
+            <td>
+              <input type="text" id="address_bcc" value=""/>
+            </td>
+          </tr>
+          <tr>
+            <td class="itemlabel">
+              <label for="mailform"><span class="require">*</span>件名：</label>
+            </td>
+            <td>
+              <input type="text" id="title" value=""/>
+            </td>
+          </tr>
+          <tr>
+            <td class="itemlabel">
+              <label for="mailform"><span class="require">*</span>本文：</label>
+            </td>
+            <td>
+              <textarea id="mailbody"></textarea>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </fieldset>
+    <button type="submit" onclick="createMail();">作成</button>
+  </form>
+  <script type="text/javascript" src="./script/index.js"></script>
+<!-- End your code here -->
+</body>
+</html>

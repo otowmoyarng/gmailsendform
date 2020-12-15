@@ -1,0 +1,20 @@
+fieldset {
+    width: 400px;
+}
+.require {
+    color: red;
+}
+.itemlabel {
+    text-align: right;
+    vertical-align: top;
+}
+input {
+    width: 250px;
+}
+textarea {
+    width: 250px;
+    height: 200px;
+}
+button {
+    margin: 5px 0px;
+}
