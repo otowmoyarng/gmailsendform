@@ -2,9 +2,15 @@
  * 初期表示処理
  */
 function initialize() {
-  document.getElementById("address_to").value = '';
-  document.getElementById("address_cc").value = '';
-  document.getElementById("address_bcc").value = '';
+
+  if (debugflg) {
+    console.log(itemkeys);
+    console.log(loaddata);
+  }
+
+  for (const itemkey of itemkeys) {
+    document.getElementById(itemkey).value = loaddata[itemkey];
+  }
 }
 
 /**
