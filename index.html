@@ -5,62 +5,47 @@
   <meta charset="UTF-8" />
   <meta name="viewport"
     content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <link rel="stylesheet" href="./style/style.css">
   <title>Gメール作成フォーム</title>
 </head>
 
 <body>
   <!-- Start your code here -->
-  <form class="mailform" action="./index.html" method="post">
-    <fieldset>
-      <legend>Gメール作成フォーム</legend>
-      <table>
-        <tbody>
-          <tr>
-            <td class="itemlabel">
-              <label for="mailform"><span class="require">*</span>宛先：</label>
-            </td>
-            <td>
-              <input type="text" id="AddressTo" value="" />
-            </td>
-          </tr>
-          <tr>
-            <td class="itemlabel">
-              <label for="mailform"> ＣＣ：</label>
-            </td>
-            <td>
-              <input type="text" id="AddressCc" value="" />
-            </td>
-          </tr>
-          <tr>
-            <td class="itemlabel">
-              <label for="mailform"> ＢＣＣ：</label>
-            </td>
-            <td>
-              <input type="text" id="AddressBcc" value="" />
-            </td>
-          </tr>
-          <tr>
-            <td class="itemlabel">
-              <label for="mailform"><span class="require">*</span>件名：</label>
-            </td>
-            <td>
-              <input type="text" id="Title" value="" />
-            </td>
-          </tr>
-          <tr>
-            <td class="itemlabel">
-              <label for="mailform"><span class="require">*</span>本文：</label>
-            </td>
-            <td>
-              <textarea id="MailBody"></textarea>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </fieldset>
-    <button type="submit" onclick="createMail();">作成</button>
+  <form class="mailform needs-validation" action="./index.html" method="post" novalidate>
+    <div class="row mb-3">
+      <label for="AddressTo" class="form-label">ＴＯ<span class="text-danger">*</span></label>
+      <input type="email" class="form-control" id="AddressTo" required>
+      <div class="invalid-feedback">
+        ＴＯを入力してください。
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="AddressCc" class="form-label">ＣＣ<span class="text-danger">*</span></label>
+      <input type="email" class="form-control" id="AddressCc" required>
+    </div>
+    <div class="row mb-3">
+      <label for="AddressBcc" class="form-label">ＢＣＣ<span class="text-danger">*</span></label>
+      <input type="email" class="form-control" id="AddressBcc" required>
+    </div>
+    <div class="row mb-3">
+      <label for="Title" class="form-label">件名<span class="text-danger">*</span></label>
+      <input type="email" class="form-control" id="Title" required>
+    </div>
+    <div class="row mb-3">
+      <label for="MailBody" class="form-label">本文<span class="text-danger">*</span></label>
+      <textarea class="form-control" id="MailBody" required></textarea>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary" onclick="createMail();">作成</button>
+    </div>
   </form>
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+  <!-- Option 1: Bootstrap Bundle with Popper -->
   <script type="text/javascript" src="./script/index.js"></script>
   <script type="text/javascript" src="./script/loaddata.js"></script>
   <!-- End your code here -->
