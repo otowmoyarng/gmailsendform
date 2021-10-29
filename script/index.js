@@ -3,13 +3,13 @@
  */
 function initialize() {
 
-  if (debugflg) {
-    console.log(itemkeys);
-    console.log(loaddata);
+  if (debugFlg) {
+    console.debug(itemKeys);
+    console.debug(LoadData);
   }
 
-  for (const itemkey of itemkeys) {
-    document.getElementById(itemkey).value = loaddata[itemkey];
+  for (const itemKey of itemKeys) {
+    document.getElementById(itemKey).value = LoadData[itemKey];
   }
 }
 
@@ -32,39 +32,39 @@ function createMail() {
 function getURL() {
   var url = "https://mail.google.com/mail/?view=cm&fs=1";
   // 宛先を含める
-  var inputvalue = document.getElementById("address_to").value;
-  if (inputvalue != "") {
+  var inputValue = document.getElementById("AddressTo").value;
+  if (inputValue != "") {
     url += "&to=";
-    url += inputvalue;
+    url += inputValue;
   }
   // CCを含める
-  inputvalue = document.getElementById("address_cc").value;
-  if (inputvalue != "") {
+  inputValue = document.getElementById("AddressCc").value;
+  if (inputValue != "") {
     url += "&cc=";
-    url += inputvalue;
+    url += inputValue;
   }
   // BCCを含める
-  inputvalue = document.getElementById("address_bcc").value;
-  if (inputvalue != "") {
+  inputValue = document.getElementById("AddressBcc").value;
+  if (inputValue != "") {
     url += "&bcc=";
-    url += inputvalue;
+    url += inputValue;
   }
   // タイトルを含める
-  inputvalue = document.getElementById("title").value;
-  if (inputvalue != "") {
+  inputValue = document.getElementById("Title").value;
+  if (inputValue != "") {
     url += "&su=";
-    url += inputvalue;
+    url += inputValue;
   }
   // 本文を含める
-  inputvalue = document.getElementById("mailbody").value;
-  if (inputvalue != "") {
+  inputValue = document.getElementById("MailBody").value;
+  if (inputValue != "") {
     url += "&body=";
-    url += inputvalue;
+    url += inputValue;
   }
   return url;
 }
 
 // loadイベント
-window.onload = function() {
+window.onload = function () {
   initialize();
 };

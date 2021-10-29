@@ -1,24 +1,24 @@
 // id属性の配列
-const itemkeys = [
-    'address_to', 
-    'address_cc', 
-    'address_bcc', 
-    'title', 
-    'mailbody'
+const itemKeys = [
+    'AddressTo',
+    'AddressCc',
+    'AddressBcc',
+    'Title',
+    'MailBody'
 ]
 
 // 初期表示値
-var loaddata = {
+const LoadData = {
     // 宛先
-    address_to : 'to@gmail.com',
+    AddressTo: 'to@gmail.com',
     // ＣＣ
-    address_cc : 'cc@gmail.com',
+    AddressCc: 'cc@gmail.com',
     // ＢＣＣ
-    address_bcc : 'bcc1@gmail.com, bcc1@gmail.com',
+    AddressBcc: 'bcc1@gmail.com, bcc1@gmail.com',
     // 件名
-    title : 'title',
+    Title: 'title',
     // 本文
-    mailbody : 'body'
+    MailBody: 'body'
 }
 
-var debugflg = false;
+const debugFlg = false;

@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="stylesheet" href="./style/style.css">
   <title>Gメール作成フォーム</title>
-  </head>
+</head>
+
 <body>
-<!-- Start your code here -->
+  <!-- Start your code here -->
   <form class="mailform" action="./index.html" method="post">
     <fieldset>
       <legend>Gメール作成フォーム</legend>
@@ -18,7 +21,7 @@
               <label for="mailform"><span class="require">*</span>宛先：</label>
             </td>
             <td>
-              <input type="text" id="address_to" value=""/>
+              <input type="text" id="AddressTo" value="" />
             </td>
           </tr>
           <tr>
@@ -26,7 +29,7 @@
               <label for="mailform"> ＣＣ：</label>
             </td>
             <td>
-              <input type="text" id="address_cc" value=""/>
+              <input type="text" id="AddressCc" value="" />
             </td>
           </tr>
           <tr>
@@ -34,7 +37,7 @@
               <label for="mailform"> ＢＣＣ：</label>
             </td>
             <td>
-              <input type="text" id="address_bcc" value=""/>
+              <input type="text" id="AddressBcc" value="" />
             </td>
           </tr>
           <tr>
@@ -42,7 +45,7 @@
               <label for="mailform"><span class="require">*</span>件名：</label>
             </td>
             <td>
-              <input type="text" id="title" value=""/>
+              <input type="text" id="Title" value="" />
             </td>
           </tr>
           <tr>
@@ -50,7 +53,7 @@
               <label for="mailform"><span class="require">*</span>本文：</label>
             </td>
             <td>
-              <textarea id="mailbody"></textarea>
+              <textarea id="MailBody"></textarea>
             </td>
           </tr>
         </tbody>
@@ -60,6 +63,7 @@
   </form>
   <script type="text/javascript" src="./script/index.js"></script>
   <script type="text/javascript" src="./script/loaddata.js"></script>
-<!-- End your code here -->
+  <!-- End your code here -->
 </body>
+
 </html>
