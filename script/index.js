@@ -18,11 +18,16 @@ function initialize() {
  */
 function createMail() {
 
+  // let myWindow = this.window;
+
   // URLを作成する
-  var url = getURL();
+  const url = getURL();
 
   // 新しいタブで開く
   window.open(url);
+
+  // 現在のウィンドウを閉じる
+  window.open('about:blank', '_self').close();
 }
 
 /**
@@ -30,9 +35,11 @@ function createMail() {
  * @return  url
  */
 function getURL() {
-  var url = "https://mail.google.com/mail/?view=cm&fs=1";
+
+  let url = "https://mail.google.com/mail/?view=cm&fs=1";
+
   // 宛先を含める
-  var inputValue = document.getElementById("AddressTo").value;
+  let inputValue = document.getElementById("AddressTo").value;
   if (inputValue != "") {
     url += "&to=";
     url += inputValue;
