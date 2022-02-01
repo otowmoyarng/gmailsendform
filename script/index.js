@@ -1,16 +1,33 @@
+// id属性の配列
+const ItemKeys = [
+  'AddressTo',
+  'AddressCc',
+  'AddressBcc',
+  'Title',
+  'MailBody'
+]
+
+// id属性の配列
+const QueryParamKeys = [
+  '&to=',
+  '&cc=',
+  '&bcc=',
+  '&su=',
+  '&body='
+]
+
 /**
  * 初期表示処理
  */
 function initialize() {
 
-  if (debugflg) {
-    console.log(itemkeys);
-    console.log(loaddata);
-  }
+  console.debug("LoadData", LoadData);
 
-  for (const itemkey of itemkeys) {
-    document.getElementById(itemkey).value = loaddata[itemkey];
-  }
+  ItemKeys.forEach(key => {
+    if (LoadData[key]) {
+      document.getElementById(key).value = LoadData[key];
+    }
+  });
 }
 
 /**
@@ -19,10 +36,13 @@ function initialize() {
 function createMail() {
 
   // URLを作成する
-  var url = getURL();
+  const url = getURL();
 
   // 新しいタブで開く
   window.open(url);
+
+  // 現在のウィンドウを閉じる
+  //window.open('about:blank', '_self').close();
 }
 
 /**
@@ -30,41 +50,19 @@ function createMail() {
  * @return  url
  */
 function getURL() {
-  var url = "https://mail.google.com/mail/?view=cm&fs=1";
-  // 宛先を含める
-  var inputvalue = document.getElementById("address_to").value;
-  if (inputvalue != "") {
-    url += "&to=";
-    url += inputvalue;
-  }
-  // CCを含める
-  inputvalue = document.getElementById("address_cc").value;
-  if (inputvalue != "") {
-    url += "&cc=";
-    url += inputvalue;
-  }
-  // BCCを含める
-  inputvalue = document.getElementById("address_bcc").value;
-  if (inputvalue != "") {
-    url += "&bcc=";
-    url += inputvalue;
-  }
-  // タイトルを含める
-  inputvalue = document.getElementById("title").value;
-  if (inputvalue != "") {
-    url += "&su=";
-    url += inputvalue;
-  }
-  // 本文を含める
-  inputvalue = document.getElementById("mailbody").value;
-  if (inputvalue != "") {
-    url += "&body=";
-    url += inputvalue;
+
+  let url = "https://mail.google.com/mail/?view=cm&fs=1";
+
+  for (let index = 0; index < ItemKeys.length; index++) {
+    let inputValue = document.getElementById(ItemKeys[index]).value;
+    if (inputValue) {
+      url += `${QueryParamKeys[index]}${inputValue}`;
+    }
   }
   return url;
 }
 
 // loadイベント
-window.onload = function() {
+window.onload = function () {
   initialize();
 };
