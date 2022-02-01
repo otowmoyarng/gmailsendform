@@ -1,12 +1,3 @@
-// id属性の配列
-const itemKeys = [
-    'AddressTo',
-    'AddressCc',
-    'AddressBcc',
-    'Title',
-    'MailBody'
-]
-
 // 初期表示値
 const LoadData = {
     // 宛先
@@ -20,5 +11,3 @@ const LoadData = {
     // 本文
     MailBody: 'body'
 }
-
-const debugFlg = false;

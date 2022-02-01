@@ -1,24 +1,39 @@
+// id属性の配列
+const ItemKeys = [
+  'AddressTo',
+  'AddressCc',
+  'AddressBcc',
+  'Title',
+  'MailBody'
+]
+
+// id属性の配列
+const QueryParamKeys = [
+  '&to=',
+  '&cc=',
+  '&bcc=',
+  '&su=',
+  '&body='
+]
+
 /**
  * 初期表示処理
  */
 function initialize() {
 
-  if (debugFlg) {
-    console.debug(itemKeys);
-    console.debug(LoadData);
-  }
+  console.debug("LoadData", LoadData);
 
-  for (const itemKey of itemKeys) {
-    document.getElementById(itemKey).value = LoadData[itemKey];
-  }
+  ItemKeys.forEach(key => {
+    if (LoadData[key]) {
+      document.getElementById(key).value = LoadData[key];
+    }
+  });
 }
 
 /**
  * Gメールの送信画面を起動する
  */
 function createMail() {
-
-  // let myWindow = this.window;
 
   // URLを作成する
   const url = getURL();
@@ -27,7 +42,7 @@ function createMail() {
   window.open(url);
 
   // 現在のウィンドウを閉じる
-  window.open('about:blank', '_self').close();
+  //window.open('about:blank', '_self').close();
 }
 
 /**
@@ -38,35 +53,11 @@ function getURL() {
 
   let url = "https://mail.google.com/mail/?view=cm&fs=1";
 
-  // 宛先を含める
-  let inputValue = document.getElementById("AddressTo").value;
-  if (inputValue != "") {
-    url += "&to=";
-    url += inputValue;
-  }
-  // CCを含める
-  inputValue = document.getElementById("AddressCc").value;
-  if (inputValue != "") {
-    url += "&cc=";
-    url += inputValue;
-  }
-  // BCCを含める
-  inputValue = document.getElementById("AddressBcc").value;
-  if (inputValue != "") {
-    url += "&bcc=";
-    url += inputValue;
-  }
-  // タイトルを含める
-  inputValue = document.getElementById("Title").value;
-  if (inputValue != "") {
-    url += "&su=";
-    url += inputValue;
-  }
-  // 本文を含める
-  inputValue = document.getElementById("MailBody").value;
-  if (inputValue != "") {
-    url += "&body=";
-    url += inputValue;
+  for (let index = 0; index < ItemKeys.length; index++) {
+    let inputValue = document.getElementById(ItemKeys[index]).value;
+    if (inputValue) {
+      url += `${QueryParamKeys[index]}${inputValue}`;
+    }
   }
   return url;
 }
