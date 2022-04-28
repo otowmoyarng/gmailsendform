@@ -55,8 +55,26 @@ function getURL() {
 
   for (let index = 0; index < ItemKeys.length; index++) {
     let inputValue = document.getElementById(ItemKeys[index]).value;
+    //console.debug(`key:${ItemKeys[index]}, value:${inputValue}`);
     if (inputValue) {
-      url += `${QueryParamKeys[index]}${inputValue}`;
+      let queryParam = inputValue;
+      if (ItemKeys[index] === 'MailBody') {
+        let bodyWords;
+        inputValue.split('\n').forEach(row => {
+          //console.debug(`row:${row}`);
+          if (bodyWords) {
+            bodyWords += '%0D%0A';
+            bodyWords += encodeURI(row);
+          } else {
+            bodyWords = encodeURI(row);
+          }
+        });
+        //console.debug(`bodyWords:${bodyWords}`);
+        queryParam = bodyWords;
+      } else if (ItemKeys[index] === 'Title') {
+        queryParam = encodeURI(inputValue);
+      }
+      url += `${QueryParamKeys[index]}${queryParam}`;
     }
   }
   return url;
